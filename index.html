@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense & Budget Tracker</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header with Balance Display -->
+        <header>
+            <h1>Expense & Budget Tracker</h1>
+            <div id="balance-display">
+                <span>Total Spending: </span>
+                <span id="total-amount">$0.00</span>
+            </div>
+        </header>
+
+        <!-- Input Form Section -->
+        <section id="input-section">
+            <form id="transaction-form">
+                <input 
+                    type="text" 
+                    id="item-name" 
+                    name="item-name"
+                    placeholder="Item Name" 
+                    aria-label="Item Name"
+                    required
+                />
+                <input 
+                    type="number" 
+                    id="amount" 
+                    name="amount"
+                    placeholder="Amount" 
+                    aria-label="Amount"
+                    step="0.01"
+                    min="0.01"
+                    required
+                />
+                <select 
+                    id="category" 
+                    name="category"
+                    aria-label="Category"
+                    required
+                >
+                    <option value="">Select Category</option>
+                    <option value="Food">Food</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Fun">Fun</option>
+                </select>
+                <button type="submit">Add Transaction</button>
+            </form>
+            <div id="error-message" class="hidden" role="alert" aria-live="polite"></div>
+        </section>
+
+        <!-- Transaction List Section -->
+        <section id="transaction-section">
+            <h2>Transactions</h2>
+            <div id="transaction-list" class="scrollable">
+                <!-- Transactions will be rendered dynamically by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Chart Component Section -->
+        <section id="chart-section">
+            <h2>Spending by Category</h2>
+            <canvas id="spending-chart" width="300" height="300" aria-label="Pie chart showing spending distribution by category"></canvas>
+            <div id="chart-legend"></div>
+        </section>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
